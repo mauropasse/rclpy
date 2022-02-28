@@ -40,7 +40,7 @@ ActionClient::destroy()
 }
 
 ActionClient::ActionClient(
-  Node & node,
+  rclpy::Node & node,
   py::object pyaction_type,
   const char * action_name,
   const rmw_qos_profile_t & goal_service_qos,

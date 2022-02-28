@@ -73,7 +73,7 @@ public:
   destroy() override;
 
 private:
-  ActionServer action_server_;
+  rclpy::ActionServer action_server_;
   std::shared_ptr<rcl_action_goal_handle_t> rcl_action_goal_handle_;
 };
 

@@ -57,7 +57,7 @@ public:
    * \param[in] result_timeout The number of seconds to wait for the result.
    */
   ActionServer(
-    Node & node,
+    rclpy::Node & node,
     const rclpy::Clock & rclpy_clock,
     py::object pyaction_type,
     const char * action_name,
@@ -229,7 +229,7 @@ public:
    *        is_goal_expired)
    */
   py::tuple
-  is_ready(WaitSet & wait_set);
+  is_ready(rclpy::WaitSet & wait_set);
 
   /// Add an action entitiy to a wait set.
   /**
@@ -239,7 +239,7 @@ public:
    * \param[in] wait_set Capsule pointer to an rcl_wait_set_t.
    */
   void
-  add_to_waitset(WaitSet & wait_set);
+  add_to_waitset(rclpy::WaitSet & wait_set);
 
   /// Get rcl_action_server_t pointer
   rcl_action_server_t *
@@ -253,7 +253,7 @@ public:
   destroy() override;
 
 private:
-  Node node_;
+  rclpy::Node node_;
   std::shared_ptr<rcl_action_server_t> rcl_action_server_;
 };
 /// Define a pybind11 wrapper for an rcl_time_point_t

@@ -46,7 +46,7 @@ public:
    * \param[in] period_nsec The period of the timer in nanoseconds
    * \return a timer capsule
    */
-  Timer(Clock & clock, Context & context, int64_t period_nsec);
+  Timer(rclpy::Clock & clock, rclpy::Context & context, int64_t period_nsec);
 
   ~Timer() = default;
 

@@ -50,7 +50,7 @@ public:
    * \param[in] pyqos_profile rmw_qos_profile_t object for this publisher.
    */
   Publisher(
-    Node & node, py::object pymsg_type, std::string topic,
+    rclpy::Node & node, py::object pymsg_type, std::string topic,
     py::object pyqos_profile);
 
   /// Get the name of the logger associated with the node of the publisher.
@@ -128,7 +128,7 @@ public:
   wait_for_all_acked(rcl_duration_t pytimeout);
 
 private:
-  Node node_;
+  rclpy::Node node_;
   std::shared_ptr<rcl_publisher_t> rcl_publisher_;
 };
 /// Define a pybind11 wrapper for an rclpy::Service

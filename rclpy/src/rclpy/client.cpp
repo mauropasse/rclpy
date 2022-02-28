@@ -40,7 +40,7 @@ Client::destroy()
 }
 
 Client::Client(
-  Node & node, py::object pysrv_type, const char * service_name, py::object pyqos_profile)
+  rclpy::Node & node, py::object pysrv_type, const char * service_name, py::object pyqos_profile)
 : node_(node)
 {
   auto srv_type = static_cast<rosidl_service_type_support_t *>(
@@ -150,7 +150,7 @@ void
 define_client(py::object module)
 {
   py::class_<Client, Destroyable, std::shared_ptr<Client>>(module, "Client")
-  .def(py::init<Node &, py::object, const char *, py::object>())
+  .def(py::init<rclpy::Node &, py::object, const char *, py::object>())
   .def_property_readonly(
     "pointer", [](const Client & client) {
       return reinterpret_cast<size_t>(client.rcl_ptr());

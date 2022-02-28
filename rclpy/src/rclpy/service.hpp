@@ -51,11 +51,11 @@ public:
    * \return capsule containing the rcl_service_t
    */
   Service(
-    Node & node, py::object pysrv_type, std::string service_name,
+    rclpy::Node & node, py::object pysrv_type, std::string service_name,
     py::object pyqos_profile);
 
   Service(
-    Node & node, std::shared_ptr<rcl_service_t> rcl_service);
+    rclpy::Node & node, std::shared_ptr<rcl_service_t> rcl_service);
 
   ~Service() = default;
 
@@ -103,7 +103,7 @@ public:
   destroy() override;
 
 private:
-  Node node_;
+  rclpy::Node node_;
   std::shared_ptr<rcl_service_t> rcl_service_;
 };
 

@@ -30,7 +30,7 @@
 namespace rclpy
 {
 Publisher::Publisher(
-  Node & node, py::object pymsg_type, std::string topic,
+  rclpy::Node & node, py::object pymsg_type, std::string topic,
   py::object pyqos_profile)
 : node_(node)
 {

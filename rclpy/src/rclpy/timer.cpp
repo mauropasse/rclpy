@@ -36,7 +36,7 @@ Timer::destroy()
 }
 
 Timer::Timer(
-  Clock & clock, Context & context, int64_t period_nsec)
+  rclpy::Clock & clock, rclpy::Context & context, int64_t period_nsec)
 : context_(context), clock_(clock)
 {
   // Create a client

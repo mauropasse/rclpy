@@ -101,7 +101,7 @@ expand_topic_name(const char * topic, const char * node_name, const char * node_
  * \return remapped topic name
  */
 std::string
-remap_topic_name(Node & node, const char * topic_name);
+remap_topic_name(rclpy::Node & node, const char * topic_name);
 
 /// Expand and remap a topic name
 /**
@@ -115,7 +115,7 @@ remap_topic_name(Node & node, const char * topic_name);
  * \return expanded and remapped topic name
  */
 std::string
-resolve_name(Node & node, const char * topic_name, bool only_expand, bool is_service);
+resolve_name(rclpy::Node & node, const char * topic_name, bool only_expand, bool is_service);
 }  // namespace rclpy
 
 #endif  // RCLPY__NAMES_HPP_

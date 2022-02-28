@@ -36,7 +36,7 @@ using pybind11::literals::operator""_a;
 namespace rclpy
 {
 Subscription::Subscription(
-  Node & node, py::object pymsg_type, std::string topic,
+  rclpy::Node & node, py::object pymsg_type, std::string topic,
   py::object pyqos_profile)
 : node_(node)
 {

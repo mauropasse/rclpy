@@ -60,7 +60,7 @@ public:
     size_t number_of_clients,
     size_t number_of_services,
     size_t number_of_events,
-    Context & context);
+    rclpy::Context & context);
 
   /// Clear all the pointers in the wait set
   /**
@@ -77,7 +77,7 @@ public:
    * \return Index in waitset entity was added at
    */
   size_t
-  add_service(const Service & service);
+  add_service(const rclpy::Service & service);
 
   /// Add a subcription to the wait set structure
   /**
@@ -87,7 +87,7 @@ public:
    * \return Index in waitset entity was added at
    */
   size_t
-  add_subscription(const Subscription & subscription);
+  add_subscription(const rclpy::Subscription & subscription);
 
   /// Add a client to the wait set structure
   /**
@@ -97,7 +97,7 @@ public:
    * \return Index in waitset entity was added at
    */
   size_t
-  add_client(const Client & client);
+  add_client(const rclpy::Client & client);
 
   /// Add a guard condition to the wait set structure
   /**
@@ -107,7 +107,7 @@ public:
    * \return Index in waitset entity was added at
    */
   size_t
-  add_guard_condition(const GuardCondition & gc);
+  add_guard_condition(const rclpy::GuardCondition & gc);
 
   /// Add a timer to the wait set structure
   /**
@@ -117,7 +117,7 @@ public:
    * \return Index in waitset entity was added at
    */
   size_t
-  add_timer(const Timer & timer);
+  add_timer(const rclpy::Timer & timer);
 
   /// Add an event to the wait set structure
   /**
@@ -127,7 +127,7 @@ public:
    * \return Index in waitset entity was added at
    */
   size_t
-  add_event(const QoSEvent & event);
+  add_event(const rclpy::QoSEvent & event);
 
   /// Check if an entity in the wait set is ready by its index
   /**
@@ -173,7 +173,7 @@ public:
   void destroy() override;
 
 private:
-  Context context_;
+  rclpy::Context context_;
   std::shared_ptr<rcl_wait_set_t> rcl_wait_set_;
 };
 

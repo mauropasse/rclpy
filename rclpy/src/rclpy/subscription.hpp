@@ -48,7 +48,7 @@ public:
    * \param[in] pyqos_profile rmw_qos_profile_t object for this subscription
    */
   Subscription(
-    Node & node, py::object pymsg_type, std::string topic,
+    rclpy::Node & node, py::object pymsg_type, std::string topic,
     py::object pyqos_profile);
 
   /// Take a message and its metadata from a subscription
@@ -97,7 +97,7 @@ public:
   destroy() override;
 
 private:
-  Node node_;
+  rclpy::Node node_;
   std::shared_ptr<rcl_subscription_t> rcl_subscription_;
 };
 /// Define a pybind11 wrapper for an rclpy::Service

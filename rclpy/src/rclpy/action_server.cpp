@@ -44,7 +44,7 @@ ActionServer::destroy()
 }
 
 ActionServer::ActionServer(
-  Node & node,
+  rclpy::Node & node,
   const rclpy::Clock & rclpy_clock,
   py::object pyaction_type,
   const char * action_name,
@@ -258,7 +258,7 @@ ActionServer::get_num_entities()
 }
 
 py::tuple
-ActionServer::is_ready(WaitSet & wait_set)
+ActionServer::is_ready(rclpy::WaitSet & wait_set)
 {
   bool is_goal_request_ready = false;
   bool is_cancel_request_ready = false;
@@ -285,7 +285,7 @@ ActionServer::is_ready(WaitSet & wait_set)
 }
 
 void
-ActionServer::add_to_waitset(WaitSet & wait_set)
+ActionServer::add_to_waitset(rclpy::WaitSet & wait_set)
 {
   rcl_ret_t ret = rcl_action_wait_set_add_action_server(
     wait_set.rcl_ptr(), rcl_action_server_.get(), NULL);
